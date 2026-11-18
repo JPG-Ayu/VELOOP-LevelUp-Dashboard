@@ -1,0 +1,1 @@
+Game container component folder.

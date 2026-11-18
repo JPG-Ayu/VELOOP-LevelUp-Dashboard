@@ -1,0 +1,1 @@
+XP activity component folder.

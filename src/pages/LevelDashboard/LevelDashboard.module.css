@@ -1,0 +1,49 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+.shell {
+  width: min(100%, 760px);
+  padding: clamp(28px, 6vw, 64px);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #202438, #191d2d);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .28);
+}
+.eyebrow {
+  color: var(--gold);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .22em;
+}
+.shell h1 {
+  margin: 12px 0;
+  color: var(--text);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 750;
+  letter-spacing: -.045em;
+}
+.description { color: var(--muted); font-size: 1.05rem; }
+.placeholder {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 34px;
+  padding: 20px;
+  border: 1px solid rgba(201, 164, 92, .25);
+  border-radius: 18px;
+  background: rgba(201, 164, 92, .06);
+  color: var(--text);
+}
+.placeholder p { margin: 5px 0 0; color: var(--muted); }
+.dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 16px rgba(201, 164, 92, .65);
+}
+.note { margin: 24px 0 0; color: var(--muted); font-size: .78rem; }

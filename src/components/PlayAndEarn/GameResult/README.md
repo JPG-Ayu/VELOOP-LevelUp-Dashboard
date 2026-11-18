@@ -1,0 +1,1 @@
+Game result component folder.
