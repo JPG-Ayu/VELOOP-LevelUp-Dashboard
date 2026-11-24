@@ -1,0 +1,1 @@
+import styles from "./Card.module.css"; export function Card({children,className="",as:Element="div"}){return <Element className={`${styles.card} ${className}`}>{children}</Element>}

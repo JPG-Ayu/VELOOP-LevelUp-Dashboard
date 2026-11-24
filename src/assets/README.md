@@ -1,3 +1,1 @@
-# Assets
-
-Place approved project images, illustrations, badge artwork and other static assets here.
+Place optimized project assets here.\n

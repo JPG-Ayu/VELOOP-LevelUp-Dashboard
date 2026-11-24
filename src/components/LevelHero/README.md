@@ -1,1 +1,1 @@
-Level hero component folder.
+Level hero components will be built in a later phase.\n

@@ -1,1 +1,1 @@
-XP activity component folder.
+XP activity components will be built in a later phase.\n

@@ -1,1 +1,1 @@
-Level reward card component folder.
+Level reward cards will be built in a later phase.\n

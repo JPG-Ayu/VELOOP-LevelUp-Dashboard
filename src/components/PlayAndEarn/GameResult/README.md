@@ -1,1 +1,1 @@
-Game result component folder.
+XP Catcher result view will be built in a later phase.\n

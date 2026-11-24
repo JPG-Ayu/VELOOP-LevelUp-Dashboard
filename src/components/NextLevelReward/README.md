@@ -1,1 +1,1 @@
-Next level reward component folder.
+Next-level reward preview will be built in a later phase.\n

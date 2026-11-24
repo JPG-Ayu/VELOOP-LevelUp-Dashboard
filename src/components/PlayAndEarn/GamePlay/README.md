@@ -1,1 +1,1 @@
-Game play state component folder.
+XP Catcher gameplay will be built in a later phase.\n

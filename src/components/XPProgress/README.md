@@ -1,1 +1,1 @@
-XP progress component folder.
+XP progress components will be built in a later phase.\n

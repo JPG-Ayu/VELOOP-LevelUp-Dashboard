@@ -1,1 +1,1 @@
-Game container component folder.
+XP Catcher game container will be built in a later phase.\n

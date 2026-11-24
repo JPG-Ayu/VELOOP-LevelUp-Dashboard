@@ -1,0 +1,1 @@
+import styles from "./ProgressBar.module.css"; export function ProgressBar({value=0,label="Progress"}){const safe=Math.min(100,Math.max(0,Number(value)||0));return <div className={styles.track} role="progressbar" aria-label={label} aria-valuenow={safe} aria-valuemin="0" aria-valuemax="100"><span className={styles.fill} style={{width:`${safe}%`}}/></div>}

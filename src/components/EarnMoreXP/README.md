@@ -1,1 +1,1 @@
-Earn more XP component folder.
+Earning feature components will be built in a later phase.\n

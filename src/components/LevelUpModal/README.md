@@ -1,1 +1,1 @@
-Level-up modal component folder.
+Level-up celebration modal will be built in a later phase.\n

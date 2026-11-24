@@ -1,1 +1,1 @@
-Level information component folder.
+Level information components will be built in a later phase.\n

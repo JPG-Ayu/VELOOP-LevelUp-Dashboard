@@ -1,1 +1,1 @@
-Game start state component folder.
+XP Catcher start view will be built in a later phase.\n

@@ -1,3 +1,1 @@
-# Hooks
-
-Place reusable React hooks here as the project grows (for example, game timer or level progress hooks).
+Reusable React hooks will be added here when required.\n
