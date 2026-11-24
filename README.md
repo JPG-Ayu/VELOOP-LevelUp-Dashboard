@@ -5,7 +5,7 @@ A fresh responsive VELOOP Rewards dashboard redesign built with React and Vite.
 ## Progress
 - Phase 1: Preparation & discovery — complete
 - Phase 2: React + Vite setup — complete
-- Phase 3: UI foundation & design system — in progress
+- Phase 3: UI foundation & design system — complete
 
 ## Stack
 React, Vite, Bootstrap utilities, CSS Modules, Lucide React.
