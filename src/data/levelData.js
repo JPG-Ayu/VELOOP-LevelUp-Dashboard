@@ -1,1 +1,10 @@
-// Illustrative values only; not connected to a live rewards backend.\nexport const levelData={currentLevel:4,levelName:"Pathfinder",currentXp:6420,nextLevelXp:8000,nextLevelReward:500,isDemo:true};
+
+// Illustrative values only; not connected to a live rewards backend.
+export const levelData = {
+  currentLevel: 4,
+  levelName: "Pathfinder",
+  currentXp: 6420,
+  nextLevelXp: 8000,
+  nextLevelReward: 500,
+  isDemo: true,
+};
