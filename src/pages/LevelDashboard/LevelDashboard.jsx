@@ -21,6 +21,7 @@ export default function LevelDashboard() {
   const [showLevelInfo, setShowLevelInfo] = useState(false);
   const [selectedEarn, setSelectedEarn] = useState(null);
   const [demoTaskDone, setDemoTaskDone] = useState(false);
+  const [uiStatePreview, setUiStatePreview] = useState("normal");
   const currentXp = levelData.currentXp ?? 6420;
   const targetXp = levelData.nextLevelXp ?? 8000;
   const currentLevel = levelData.currentLevel ?? 4;
@@ -105,6 +106,18 @@ export default function LevelDashboard() {
         <p>{earnDetails[selectedEarn].body}</p>
         {selectedEarn === "Daily Tasks" ? <div className={styles.demoTaskRow}><span>{demoTaskDone ? "Demo task completed" : "Try the interactive demo task"}</span><button type="button" className={styles.demoTaskButton} onClick={() => setDemoTaskDone((done) => !done)}>{demoTaskDone ? "Undo" : "Mark complete"}</button></div> : <span className={styles.earnDetailAction}>{earnDetails[selectedEarn].action}</span>}
       </article>}
+    </section>
+
+
+    <section className={styles.statesSection} aria-labelledby="states-title">
+      <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>RESILIENT UI</p><h2 id="states-title">Interface States</h2><p>Preview how the dashboard responds while content loads or when data is unavailable.</p></div></div>
+      <div className={styles.stateControls} role="group" aria-label="Preview interface states">
+        {[{id:"normal",label:"Normal"},{id:"loading",label:"Loading"},{id:"empty",label:"Empty"},{id:"error",label:"Error"}].map((item)=><button key={item.id} type="button" className={`${styles.stateControl} ${uiStatePreview===item.id?styles.stateControlActive:""}`} onClick={()=>setUiStatePreview(item.id)} aria-pressed={uiStatePreview===item.id}>{item.label}</button>)}
+      </div>
+      <article className={styles.statePreview} aria-live="polite">
+        {uiStatePreview === "loading" ? <div className={styles.skeletonState}><span className={styles.skeletonLine}/><span className={styles.skeletonLineShort}/><span className={styles.skeletonBar}/><span className={styles.skeletonLine}/></div> : uiStatePreview === "empty" ? <div className={styles.emptyState}><span className={styles.stateSymbol}>◇</span><strong>No activities yet</strong><p>New earning activities will appear here when available.</p><button type="button" onClick={()=>setUiStatePreview("normal")}>Explore dashboard</button></div> : uiStatePreview === "error" ? <div className={styles.errorState}><span className={styles.stateSymbol}>!</span><strong>Couldn’t load activities</strong><p>Something went wrong while loading this demo section.</p><button type="button" onClick={()=>setUiStatePreview("loading")}>Retry</button></div> : <div className={styles.normalState}><CheckCircle2 size={20}/><strong>All systems ready</strong><p>Dashboard content is available in this demo preview.</p></div>}
+      </article>
+      <small className={styles.stateDemoNote}>Interactive state preview · No live data requests are made</small>
     </section>
 
     <XPCatcherSection />

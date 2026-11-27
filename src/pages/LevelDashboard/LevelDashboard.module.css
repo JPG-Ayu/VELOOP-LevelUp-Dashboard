@@ -1033,3 +1033,24 @@
     transform: none !important;
   }
 }
+
+/* Phase 9 — loading, empty and error UI states */
+.statesSection { margin: 34px 0; padding: 22px; border: 1px solid var(--vl-border); border-radius: 22px; background: rgba(255,255,255,.025); }
+.stateControls { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 14px; }
+.stateControl { border: 1px solid var(--vl-border); border-radius: 999px; padding: 8px 14px; background: transparent; color: var(--vl-muted); font: inherit; font-size: 12px; cursor: pointer; transition: .2s ease; }
+.stateControlActive { color: #171827; background: linear-gradient(135deg,#F0D99A,#C99D43); border-color: transparent; font-weight: 700; }
+.statePreview { min-height: 150px; display: grid; place-items: center; border: 1px solid var(--vl-border); border-radius: 16px; background: rgba(12,14,24,.36); padding: 20px; }
+.normalState,.emptyState,.errorState { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.normalState svg { color: #85D6A4; }
+.emptyState .stateSymbol,.errorState .stateSymbol { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 12px; background: rgba(201,157,67,.1); color: #C99D43; font-size: 22px; font-weight: 800; }
+.errorState .stateSymbol { color: #F09B91; background: rgba(240,155,145,.1); }
+.normalState strong,.emptyState strong,.errorState strong { font-size: 14px; }
+.normalState p,.emptyState p,.errorState p { margin: 0; color: var(--vl-muted); font-size: 12px; }
+.emptyState button,.errorState button { margin-top: 6px; border: 1px solid var(--vl-border); border-radius: 9px; padding: 8px 12px; color: var(--vl-text); background: rgba(255,255,255,.04); cursor: pointer; }
+.skeletonState { width: min(100%, 420px); display: flex; flex-direction: column; gap: 12px; }
+.skeletonLine,.skeletonLineShort,.skeletonBar { height: 12px; border-radius: 999px; background: linear-gradient(90deg,rgba(255,255,255,.04),rgba(255,255,255,.11),rgba(255,255,255,.04)); background-size: 200% 100%; animation: stateShimmer 1.35s ease-in-out infinite; }
+.skeletonLineShort { width: 48%; }
+.skeletonBar { height: 42px; border-radius: 12px; }
+.stateDemoNote { display: block; margin-top: 12px; color: var(--vl-muted); font-size: 10px; }
+@keyframes stateShimmer { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { .skeletonLine,.skeletonLineShort,.skeletonBar { animation: none; } }
