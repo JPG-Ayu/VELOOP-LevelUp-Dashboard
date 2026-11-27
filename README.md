@@ -7,6 +7,8 @@ A fresh responsive VELOOP Rewards dashboard redesign built with React and Vite.
 - Phase 2: React + Vite setup — complete
 - Phase 3: UI foundation & design system — complete
 - Phase 4: Home Dashboard — complete
+- Phase 5: Level progression & rewards — complete
+- Phase 6: XP Catcher mini-game — implementation added; local verification pending
 
 ## Phase 4 scope
 - Welcome header and navigation preview
@@ -48,3 +50,14 @@ XP, daily activity and reward examples are illustrative demo values only. Earnin
 npm install
 npm run dev
 ```
+
+## Phase 6 — XP Catcher mini-game
+
+A playable, skill-based 18-second mini-game is integrated in the dashboard. Use pointer, touch, arrow keys, A/D or on-screen buttons to move the basket and catch falling collectibles. XP orbs score 10, VE coins 5, and gems 15. The game provides a start screen, timer, live score, collected count, completion screen, illustrative reward tiers, and Play Again. The XP Catcher shortcut scrolls to the playable game.
+
+**Prototype-only:** reward values and gameplay limits are examples. No backend reward issuance, actual wallet credit, server eligibility, or daily frequency enforcement is implemented. Replay is unlimited locally.
+
+
+## Phase 6 — XP Catcher (frontend prototype)
+
+The XP Catcher game is accessible from the Earn More section. Catch falling XP orbs (10 points), VE coins (5 points), and gems (15 points) by moving the basket with the mouse, touch, arrow keys, or A/D keys. Each round lasts 18 seconds. Results award *illustrative* 5/15/30 XP and up to 12 VEs based on score. Unlimited replay is supported in this frontend prototype. No actual account XP or wallet credits are issued. Official reward eligibility, frequency limits, and credit processing require backend integration.

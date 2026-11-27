@@ -1,3 +1,4 @@
+import XPCatcherSection from "../../components/PlayAndEarn/GameContainer/XPCatcher";
 import { useState } from "react";
 import { Bell, Menu, Home, Wallet, Gift, UserRound, Zap, ClipboardList, Flame, Play, Users, Magnet, Gamepad2, ArrowRight, ChevronRight, Sparkles, Coins, Star, CheckCircle2, X, Info, LockKeyhole, Check } from "lucide-react";
 import { levelData } from "../../data/levelData";
@@ -85,9 +86,11 @@ export default function LevelDashboard() {
     </section>
 
     <section className={styles.earnSection}>
-      <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>MAKE EVERY ACTION COUNT</p><h2>Earn More</h2><p>Explore fun activities and earn eligible rewards.</p></div><button className={styles.roundArrow} aria-label="Explore earning options" onClick={() => preview("Earn more")}><ArrowRight size={19} /></button></div>
-      <div className={styles.earningGrid}>{earningItems.map(({ title, description, reward, icon: Icon, tone }) => <button key={title} className={styles.earningCard} onClick={() => preview(title)}><span className={`${styles.earningIcon} ${styles[tone]}`}><Icon size={21} /></span><span className={styles.earningText}><strong>{title}</strong><small>{description}</small><em>{reward}</em></span><span className={styles.cardArrow}><ChevronRight size={17} /></span><span className={styles.comingSoon}>Coming Soon</span></button>)}</div>
+      <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>MAKE EVERY ACTION COUNT</p><h2>Earn More</h2><p>Explore fun activities and earn eligible rewards.</p></div><button className={styles.roundArrow} aria-label="Explore earning options" onClick={() => setShowGame(true)}><ArrowRight size={19} /></button></div>
+      <div className={styles.earningGrid}>{earningItems.map(({ title, description, reward, icon: Icon, tone }) => <button key={title} className={styles.earningCard} onClick={() => title === "XP Catcher" ? document.getElementById("xp-catcher")?.scrollIntoView({ behavior: "smooth" }) : preview(title)}><span className={`${styles.earningIcon} ${styles[tone]}`}><Icon size={21} /></span><span className={styles.earningText}><strong>{title}</strong><small>{description}</small><em>{reward}</em></span><span className={styles.cardArrow}><ChevronRight size={17} /></span><span className={styles.comingSoon}>{title === "XP Catcher" ? "PLAY NOW" : "Coming Soon"}</span></button>)}</div>
     </section>
+
+    <XPCatcherSection />
 
     <section className={styles.rewardBanner} aria-labelledby="next-reward-title">
       <div className={styles.rewardCopy}>
