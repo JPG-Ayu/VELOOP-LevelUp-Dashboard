@@ -19,6 +19,8 @@ export default function LevelDashboard() {
   const [notice, setNotice] = useState("");
   const [showRewardInfo, setShowRewardInfo] = useState(false);
   const [showLevelInfo, setShowLevelInfo] = useState(false);
+  const [selectedEarn, setSelectedEarn] = useState(null);
+  const [demoTaskDone, setDemoTaskDone] = useState(false);
   const currentXp = levelData.currentXp ?? 6420;
   const targetXp = levelData.nextLevelXp ?? 8000;
   const currentLevel = levelData.currentLevel ?? 4;
@@ -26,7 +28,14 @@ export default function LevelDashboard() {
   const nextLevelData = levelData.levels.find((item) => item.level === nextLevel);
   const progress = Math.min(100, Math.round(currentXp / targetXp * 100));
   const remainingXp = Math.max(0, targetXp - currentXp);
-  const preview = (name) => setNotice(`${name} is a concept preview and will be implemented in a later phase.`);
+  const preview = (name) => setNotice(`${name} is a concept preview. No real XP or wallet rewards are issued in this demo.`);
+  const earnDetails = {
+    "Watch & Earn": { heading: "Watch eligible content", body: "A future earning flow may reward users for completing eligible videos. This prototype does not play videos or issue XP.", status: "Concept preview", action: "Preview unavailable" },
+    "Daily Tasks": { heading: "Daily activity checklist", body: "Complete daily activities to build a habit and track progress. The checklist below is interactive demo state only.", status: "Demo interaction", action: "Mark demo task" },
+    "Refer & Earn": { heading: "Invite your friends", body: "A referral feature would provide a shareable invite link and reward eligibility details. Referral tracking is not connected in this frontend.", status: "Concept preview", action: "Referral link unavailable" },
+    "Mini Games": { heading: "Skill-based mini games", body: "More skill-based games could appear here. XP Catcher is the playable game currently included in this prototype.", status: "Coming soon", action: "Not available yet" },
+    "Streak Bonus": { heading: "Keep your streak alive", body: "A streak system could track consecutive active days and show the next bonus. No streak is tracked by this demo.", status: "Concept preview", action: "Streak tracking unavailable" },
+  };
 
   return <main className={styles.dashboard}><div className={styles.container}>
     <header className={styles.header}>
@@ -86,8 +95,16 @@ export default function LevelDashboard() {
     </section>
 
     <section className={styles.earnSection}>
-      <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>MAKE EVERY ACTION COUNT</p><h2>Earn More</h2><p>Explore fun activities and earn eligible rewards.</p></div><button className={styles.roundArrow} aria-label="Explore earning options" onClick={() => setShowGame(true)}><ArrowRight size={19} /></button></div>
-      <div className={styles.earningGrid}>{earningItems.map(({ title, description, reward, icon: Icon, tone }) => <button key={title} className={styles.earningCard} onClick={() => title === "XP Catcher" ? document.getElementById("xp-catcher")?.scrollIntoView({ behavior: "smooth" }) : preview(title)}><span className={`${styles.earningIcon} ${styles[tone]}`}><Icon size={21} /></span><span className={styles.earningText}><strong>{title}</strong><small>{description}</small><em>{reward}</em></span><span className={styles.cardArrow}><ChevronRight size={17} /></span><span className={styles.comingSoon}>{title === "XP Catcher" ? "PLAY NOW" : "Coming Soon"}</span></button>)}</div>
+      <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>MAKE EVERY ACTION COUNT</p><h2>Earn More</h2><p>Explore fun activities and earn eligible rewards.</p></div><button className={styles.roundArrow} aria-label="Scroll to earning options" onClick={() => document.getElementById("earning-options")?.scrollIntoView({ behavior: "smooth" })}><ArrowRight size={19} /></button></div>
+      <div className={styles.earningGrid} id="earning-options">{earningItems.map(({ title, description, reward, icon: Icon, tone }) => <button key={title} className={`${styles.earningCard} ${selectedEarn === title ? styles.earningSelected : ""}`} aria-expanded={selectedEarn === title} onClick={() => title === "XP Catcher" ? document.getElementById("xp-catcher")?.scrollIntoView({ behavior: "smooth" }) : setSelectedEarn(selectedEarn === title ? null : title)}><span className={`${styles.earningIcon} ${styles[tone]}`}><Icon size={21} /></span><span className={styles.earningText}><strong>{title}</strong><small>{description}</small><em>{reward}</em></span><span className={styles.cardArrow}><ChevronRight size={17} /></span><span className={styles.comingSoon}>{title === "XP Catcher" ? "PLAY NOW" : "Coming Soon"}</span></button>)}</div>
+      {selectedEarn && earnDetails[selectedEarn] && <article className={styles.earnDetailPanel} aria-live="polite">
+        <div className={styles.earnDetailHeader}>
+          <div><p className={styles.eyebrow}>{earnDetails[selectedEarn].status}</p><h3>{earnDetails[selectedEarn].heading}</h3></div>
+          <button type="button" className={styles.detailClose} aria-label="Close details" onClick={() => setSelectedEarn(null)}><X size={17}/></button>
+        </div>
+        <p>{earnDetails[selectedEarn].body}</p>
+        {selectedEarn === "Daily Tasks" ? <div className={styles.demoTaskRow}><span>{demoTaskDone ? "Demo task completed" : "Try the interactive demo task"}</span><button type="button" className={styles.demoTaskButton} onClick={() => setDemoTaskDone((done) => !done)}>{demoTaskDone ? "Undo" : "Mark complete"}</button></div> : <span className={styles.earnDetailAction}>{earnDetails[selectedEarn].action}</span>}
+      </article>}
     </section>
 
     <XPCatcherSection />

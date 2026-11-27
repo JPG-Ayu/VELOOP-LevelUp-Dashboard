@@ -975,3 +975,28 @@
   .rewardDemo { right:12px; top:10px; font-size:6px; }
 }
 @media(prefers-reduced-motion:reduce) { .rewardProgressTrack span,.progressTrack span { transition:none; } .earningCard { transition:none; } }
+
+/* Phase 7: earning card interaction details */
+.earningSelected { border-color: var(--vl-gold); background: linear-gradient(145deg, rgba(61, 54, 48, .95), rgba(29, 33, 49, .95)); }
+.earnDetail { display:flex; justify-content:space-between; gap:18px; margin-top:14px; padding:20px 22px; border:1px solid var(--vl-border-strong); border-radius:17px; background:linear-gradient(145deg,rgba(42,46,65,.95),rgba(28,32,48,.95)); animation:earnPanelIn .2s ease-out; }
+.earnDetail h3 { margin:7px 0 6px; font-size:17px; }
+.earnDetail p { max-width:650px; margin:0; color:var(--vl-muted); font-size:12px; line-height:1.7; }
+.detailStatus { color:var(--vl-gold); font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.detailClose { width:32px; height:32px; flex-shrink:0; border:1px solid var(--vl-border); border-radius:10px; background:transparent; color:var(--vl-muted); cursor:pointer; }
+.demoTask { display:flex; align-items:center; gap:9px; margin-top:14px; color:var(--vl-text); font-size:12px; }
+.demoTask input { accent-color:var(--vl-gold); }
+.demoTask span { margin-left:auto; color:var(--vl-success); font-size:10px; font-weight:700; }
+@keyframes earnPanelIn { from { opacity:0; transform:translateY(-5px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:600px) { .earnDetail { padding:16px; } .demoTask { align-items:flex-start; flex-wrap:wrap; } .demoTask span { margin-left:0; width:100%; } }
+
+/* Phase 7 click-feedback detail panel */
+.earnDetailPanel{margin-top:14px;padding:20px;border:1px solid var(--vl-border);border-radius:18px;background:linear-gradient(145deg,rgba(43,48,68,.95),rgba(30,34,51,.96));animation:earnPanelIn .22s ease both}
+.earnDetailHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.earnDetailHeader h3{margin:0;font-size:18px;color:var(--vl-text)}
+.earnDetailPanel>p{margin:12px 0;color:var(--vl-muted);font-size:13px;line-height:1.65}
+.detailClose{width:32px;height:32px;border:1px solid var(--vl-border);border-radius:10px;background:transparent;color:var(--vl-text);display:grid;place-items:center;cursor:pointer}
+.earnDetailAction{display:inline-flex;padding:8px 11px;border:1px solid var(--vl-border);border-radius:10px;color:var(--vl-muted);font-size:11px}
+.demoTaskRow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid var(--vl-border);border-radius:12px;background:rgba(255,255,255,.025);color:var(--vl-text);font-size:12px}
+.demoTaskButton{padding:8px 12px;border:1px solid rgba(214,173,85,.55);border-radius:10px;background:rgba(214,173,85,.12);color:var(--vl-gold-soft);font-weight:700;cursor:pointer}
+@keyframes earnPanelIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){.demoTaskRow{align-items:flex-start;flex-direction:column}}
