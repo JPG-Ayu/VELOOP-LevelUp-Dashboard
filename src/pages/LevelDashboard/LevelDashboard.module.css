@@ -1000,3 +1000,36 @@
 .demoTaskButton{padding:8px 12px;border:1px solid rgba(214,173,85,.55);border-radius:10px;background:rgba(214,173,85,.12);color:var(--vl-gold-soft);font-weight:700;cursor:pointer}
 @keyframes earnPanelIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:560px){.demoTaskRow{align-items:flex-start;flex-direction:column}}
+
+
+/* PHASE 8 — dashboard motion polish */
+.dashboard { animation: vlFadeUp .42s ease-out both; }
+.header, .welcome, .heroGrid, .earnSection, .rewardBanner, .bottomNav {
+  animation: vlFadeUp .45s ease-out both;
+}
+.welcome { animation-delay: .04s; }
+.heroGrid { animation-delay: .08s; }
+.earnSection { animation-delay: .12s; }
+.rewardBanner { animation-delay: .16s; }
+.earningCard, .boostCard, .rewardBanner, .levelBadge, .iconButton, .roundArrow, .navItem {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease, filter .22s ease;
+}
+.earningCard:hover, .boostCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(214,173,85,.36);
+  box-shadow: 0 10px 26px rgba(0,0,0,.16);
+}
+.earningCard:active, .boostCard:active { transform: scale(.99); }
+.rewardBanner:hover { box-shadow: var(--vl-shadow-gold); }
+.levelBadge { animation: vlSoftPulse 4s ease-in-out infinite; }
+.iconButton:hover, .roundArrow:hover { filter: brightness(1.12); transform: translateY(-1px); }
+.navItem:hover { transform: translateY(-2px); }
+.progressTrack > * { transform-origin: left center; }
+@media (prefers-reduced-motion: reduce) {
+  .dashboard, .header, .welcome, .heroGrid, .earnSection, .rewardBanner, .bottomNav, .levelBadge {
+    animation: none !important;
+  }
+  .earningCard:hover, .boostCard:hover, .navItem:hover, .iconButton:hover, .roundArrow:hover {
+    transform: none !important;
+  }
+}
